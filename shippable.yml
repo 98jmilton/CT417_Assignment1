@@ -1,0 +1,17 @@
+language: java
+
+jdk:
+  - openjdk11
+
+build:
+  ci:
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - mvn clean verify
+
+integrations:
+  notifications:
+    - integrationName: email
+      type: email
+      recipients:
+        - 98jmilton@gmail.com
